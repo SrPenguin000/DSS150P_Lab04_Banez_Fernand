@@ -1,3 +1,4 @@
+```mermaid
 flowchart LR
     CSV[(bgg_dataset.csv<br/>+ source_manifest.yml)] -->|sha256 verify| ING[ingest.py<br/>full / checkpoint]
     ING --> RAW[raw parquet<br/>text + audit cols]
@@ -11,3 +12,4 @@ flowchart LR
     RAW & STG & CUR & OUT --> PG[(PostgreSQL<br/>raw / staging / curated / ml / audit)]
     DQ{{quality.py<br/>data contract}} -.checks.-> RAW & STG & CUR & MR
     AF[Airflow DAG<br/>bgg_pipeline] -.orchestrates.-> ING & STG & CUR & FEAT & TRAIN & CMP
+```

@@ -1,3 +1,4 @@
+```mermaid
 flowchart TB
     S["bgg_dataset.csv<br/>14 cols, 20,343 rows (; and decimal comma)"] --> R["raw: all text + source_row_number,<br/>source_sha256, ingested_at, ingest_run_id"]
     R -->|"trim, blank/'nan' to null,<br/>comma to point, to numeric,<br/>reject null ID, dedupe on ID"| ST["staging: typed, 1 row per ID<br/>20,327 rows"]
@@ -9,3 +10,4 @@ flowchart TB
     MO --> ME[metrics.json]
     BASE[config/baseline_metrics.json] --> CMP[metrics_comparison.json]
     ME --> CMP
+```
